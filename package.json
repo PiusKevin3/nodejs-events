@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-events",
+  "version": "1.0.0",
+  "description": "Nodejs events and subsciber  end point",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "node ./nodemailer/realEmail"
+  },
+  "author": "Pius Kevin Mafabi",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "handlebars": "^4.7.7",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.8.0"
+  }
+}
