@@ -1,5 +1,7 @@
 const EventEmitter = require("events");
 const sendEmail = require("../nodemailer/realEmailAccount");
+const sendEmailWithSendGrid = require("../sendGrid/index");
+
 /**Publisher Subscriber Design Pattern */
 
 class NotificationPubSub extends EventEmitter {
@@ -8,11 +10,17 @@ class NotificationPubSub extends EventEmitter {
    */
   subscribe(eventName) {
     switch (eventName) {
-      case "USER_CREATED_SEND_WELCOME_EMAIL":
+      case "USER_CREATED_SEND_WELCOME_EMAIL_WITH_NODEMAILER":
         this.on(eventName, async (emailDataFields) => {
-          await sendEmail(emailDataFields);
+         await sendEmail(emailDataFields);
         });
         break;
+      case "USER_CREATED_SEND_WELCOME_EMAIL_WITH_SENDGRID":
+        this.on(eventName, async (emailDataFields) => {
+            await sendEmailWithSendGrid(emailDataFields);
+            
+         });
+        break;  
       case "SEND_SMS":
         this.on(eventName, (data) => {
           console.log("Handle SMS notification...", data);

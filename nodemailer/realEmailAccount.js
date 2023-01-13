@@ -28,6 +28,9 @@ const sendEmail = (emailDataFields) => {
     });
   };
 
+  /**The main transport is SMTP, but it can also be extended to use SendGrid,
+   *  Mailgun, Postmark, and Amazon SES. */
+  
   const createTransporter = () => {
     //creating smtp object
     let transporter = nodeMailer.createTransport({
