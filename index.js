@@ -14,11 +14,8 @@ const emailDataFields = require("./nodemailer/emailData");
 */
 const test=(data)=>{
   console.log('Am working well',data)
-
 }
-
 const bullRedisMessageQueuer = require('./bullRedis')
-
 bullRedisMessageQueuer.jobProducer('USER_CREATED',{name:'pius'},1000)
 bullRedisMessageQueuer.jobConsumer('USER_CREATED',(data)=>test(data))
 
